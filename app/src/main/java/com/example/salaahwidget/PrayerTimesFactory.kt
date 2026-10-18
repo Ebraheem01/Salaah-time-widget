@@ -19,6 +19,8 @@ data class PrayerEntry(
     val isPrayer: Boolean = true,
 )
 
+data class NextPrayer(val entry: PrayerEntry, val isTomorrow: Boolean)
+
 /**
  * Prayer times for Cape Town, South Africa.
  *
@@ -54,6 +56,17 @@ object PrayerTimesFactory {
             PrayerEntry("Maghrib", times.maghrib),
             PrayerEntry("Isha", times.isha),
         )
+    }
+
+    /** Compare absolute instants so this remains correct in any device time zone. */
+    fun nextPrayer(now: ZonedDateTime = ZonedDateTime.now(zone)): NextPrayer {
+        val today = prayerTimesFor(now)
+        val upcoming = today.firstOrNull { it.isPrayer && it.time.toInstant().isAfter(now.toInstant()) }
+        return if (upcoming != null) {
+            NextPrayer(upcoming, false)
+        } else {
+            NextPrayer(prayerTimesFor(now.plusDays(1)).first(), true)
+        }
     }
 
     private val timeFormatter: DateTimeFormatter =

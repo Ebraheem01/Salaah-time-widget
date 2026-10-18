@@ -6,12 +6,23 @@
     <color name="text_primary">#1F2937</color>
     <color name="text_muted">#6B7280</color>
 
-    <color name="widget_background">#14532D</color>
-    <color name="widget_title">#FFFFFF</color>
-    <color name="widget_date">#B7D8C0</color>
-    <color name="widget_label">#DCEFE1</color>
-    <color name="widget_time">#FFFFFF</color>
-    <color name="widget_dim">#8FB79B</color>
+    <color name="widget_forest">#092F25</color>
+    <color name="widget_emerald">#064E3B</color>
+    <color name="widget_rich_green">#065F46</color>
+    <color name="widget_highlight">#10B981</color>
+    <color name="widget_gold">#E8C985</color>
+    <color name="widget_cream">#F8F4E8</color>
+    <color name="widget_muted">#A7BDB2</color>
+    <color name="widget_border">#43E8C985</color>
+    <color name="widget_divider">#2EE8C985</color>
+    <color name="widget_active">#B0065F46</color>
+    <!-- Retained for the legacy layout resource. -->
+    <color name="widget_background">#092F25</color>
+    <color name="widget_title">#F8F4E8</color>
+    <color name="widget_date">#A7BDB2</color>
+    <color name="widget_label">#F8F4E8</color>
+    <color name="widget_time">#F8F4E8</color>
+    <color name="widget_dim">#A7BDB2</color>
 
     <color name="ic_launcher_background">#14532D</color>
 </resources>

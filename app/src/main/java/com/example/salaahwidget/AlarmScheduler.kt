@@ -17,6 +17,8 @@ object AlarmScheduler {
     const val ACTION_MIDNIGHT_REFRESH = "com.example.salaahwidget.action.MIDNIGHT_REFRESH"
 
     private const val REQUEST_CODE = 1001
+    private const val PRAYER_REQUEST_CODE = 1002
+    const val ACTION_PRAYER_REFRESH = "com.example.salaahwidget.action.PRAYER_REFRESH"
 
     fun scheduleNext(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -46,6 +48,29 @@ object AlarmScheduler {
     fun cancel(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmManager.cancel(midnightPendingIntent(context))
+        alarmManager.cancel(prayerPendingIntent(context))
+    }
+
+    /** Refresh the featured prayer when the current one starts. */
+    fun scheduleNextPrayer(context: Context) {
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val triggerAt = PrayerTimesFactory.nextPrayer().entry.time.time + 1000L
+        val pendingIntent = prayerPendingIntent(context)
+        val exactAllowed =
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms()
+        if (exactAllowed) {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent)
+        } else {
+            alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent)
+        }
+    }
+
+    private fun prayerPendingIntent(context: Context): PendingIntent {
+        val intent = Intent(context, SalaahWidgetProvider::class.java).setAction(ACTION_PRAYER_REFRESH)
+        return PendingIntent.getBroadcast(
+            context, PRAYER_REQUEST_CODE, intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
     }
 
     private fun midnightPendingIntent(context: Context): PendingIntent {

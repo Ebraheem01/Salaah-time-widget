@@ -19,6 +19,10 @@ import java.time.ZonedDateTime
  */
 class MainActivity : Activity() {
 
+    companion object {
+        const val EXTRA_OPEN_SETTINGS = "com.example.salaahwidget.extra.OPEN_SETTINGS"
+    }
+
     private val timeRowIds = mapOf(
         "Fajr" to R.id.main_fajr_time,
         "Sunrise" to R.id.main_sunrise_time,
@@ -42,6 +46,12 @@ class MainActivity : Activity() {
         SalaahWidgetProvider.refreshAll(this)
         AlarmScheduler.scheduleNext(this)
         updateExactAlarmUi()
+        if (intent.getBooleanExtra(EXTRA_OPEN_SETTINGS, false)) {
+            findViewById<View>(R.id.main_status).post {
+                findViewById<View>(R.id.main_scroll).scrollTo(0, findViewById<View>(R.id.main_status).top)
+            }
+            intent.removeExtra(EXTRA_OPEN_SETTINGS)
+        }
     }
 
     private fun showToday() {
@@ -55,24 +65,20 @@ class MainActivity : Activity() {
             }
         }
 
-        val next = entries.firstOrNull {
-            it.isPrayer && it.time.time > System.currentTimeMillis()
-        }
-        val nextLabel: String = if (next != null) {
-            val minutes = Duration.between(now, next.time.toInstant()).toMinutes()
+        val next = PrayerTimesFactory.nextPrayer(now)
+        val nextLabel: String = if (!next.isTomorrow) {
+            val minutes = Duration.between(now, next.entry.time.toInstant()).toMinutes()
             getString(
                 R.string.next_prayer,
-                next.name,
-                PrayerTimesFactory.formatTime(next.time),
+                next.entry.name,
+                PrayerTimesFactory.formatTime(next.entry.time),
                 humanizeMinutes(minutes),
             )
         } else {
-            // After Isha: point at tomorrow's Fajr.
-            val fajrTomorrow = PrayerTimesFactory.prayerTimesFor(now.plusDays(1)).first()
             getString(
                 R.string.next_prayer_tomorrow,
-                fajrTomorrow.name,
-                PrayerTimesFactory.formatTime(fajrTomorrow.time),
+                next.entry.name,
+                PrayerTimesFactory.formatTime(next.entry.time),
             )
         }
         findViewById<TextView>(R.id.main_next).text = nextLabel

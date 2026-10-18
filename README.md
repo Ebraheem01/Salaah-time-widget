@@ -7,8 +7,10 @@ library — the app has no internet permission at all.
 - Method: **Muslim World League** (Fajr 18°, Isha 17°)
 - Asr: **Standard / Shafi'i**
 - Timezone: `Africa/Johannesburg` (SAST) — correct even if the phone is set to another zone
-- Rows: Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha — next prayer highlighted
-- Refreshes itself just after midnight, every day
+- Rows: Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha, plus a featured next-prayer card
+- Two responsive layouts: a compact timetable and a larger layout with mosque artwork and Qur'an quote
+- The next-prayer countdown uses Android's host-side Chronometer; the app does not wake every minute
+- Refreshes at prayer boundaries and just after midnight
 
 ## Build
 
@@ -59,14 +61,15 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 Then long-press your home screen → **Widgets** → **Salaah Cape Town** → drag
-it out. Size it as you like (designed for a 2×3 grid).
+it out. The compact layout needs about 220 × 315 dp; enlarge it to around
+240 × 400 dp to show the mosque artwork and quote. Launcher grid sizes vary.
 
 ## How the midnight refresh works
 
 Android widgets cannot run code on their own, so the app arms a single alarm:
 
-1. `AlarmScheduler` sets one exact alarm (`setExactAndAllowWhileIdle`) for the
-   next Cape Town midnight.
+1. `AlarmScheduler` sets one alarm for the next Cape Town midnight and one
+   for the next prayer boundary.
 2. When it fires, `SalaahWidgetProvider` recomputes the times, repaints every
    placed widget, and arms the following midnight.
 3. `BootReceiver` re-arms the alarm after reboots, app updates, clock/timezone
@@ -130,7 +133,9 @@ salaah-widget/
         │   ├── BootReceiver.kt              # re-arm after boot/time changes
         │   └── MainActivity.kt              # today's times + permission UI
         └── res/
-            ├── layout/widget_salaah.xml     # widget layout
+            ├── layout/widget_compact.xml    # smaller widget layout
+            ├── layout/widget_premium.xml    # larger artwork layout
+            ├── layout/widget_salaah.xml     # legacy layout, no longer selected
             ├── layout/activity_main.xml     # app screen
             ├── xml/salaah_widget_info.xml   # widget metadata (size, refresh)
             ├── drawable/, mipmap-anydpi-v26/, values/
