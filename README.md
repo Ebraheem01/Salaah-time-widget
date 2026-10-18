@@ -61,8 +61,9 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 Then long-press your home screen → **Widgets** → **Salaah Cape Town** → drag
-it out. The compact layout needs about 220 × 315 dp; enlarge it to around
-240 × 400 dp to show the mosque artwork and quote. Launcher grid sizes vary.
+it out. The default compact layout requests 3 × 4 launcher cells (about
+180 × 225 dp). Enlarge it to around 270 × 410 dp to show the mosque artwork
+and quote. Launcher grid sizes vary.
 
 ## How the midnight refresh works
 

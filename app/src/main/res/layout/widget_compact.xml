@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="8dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                     android:maxLines="1"
                     android:text="@string/widget_title_compact"
                     android:textColor="@color/widget_cream"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
                 <TextView
                     android:id="@+id/widget_date"
                     android:layout_width="match_parent"
@@ -42,12 +42,12 @@
                     android:drawablePadding="4dp"
                     android:text="@string/widget_date_placeholder"
                     android:textColor="@color/widget_muted"
-                    android:textSize="10sp" />
+                    android:textSize="9sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/widget_menu"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:background="@drawable/widget_menu_background"
                 android:contentDescription="@string/widget_settings"
                 android:gravity="center"
@@ -58,13 +58,13 @@
         <LinearLayout
             android:id="@+id/widget_next_card"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/widget_next_background"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingLeft="13dp"
-            android:paddingRight="12dp">
+            android:paddingLeft="10dp"
+            android:paddingRight="9dp">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/next_prayer_heading"
                     android:textColor="@color/widget_gold"
-                    android:textSize="10sp"
+                    android:textSize="9sp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/widget_next_name"
@@ -85,7 +85,7 @@
                     android:maxLines="1"
                     android:text="@string/fajr"
                     android:textColor="@color/widget_cream"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
                 <Chronometer
                     android:id="@+id/widget_countdown"
@@ -94,7 +94,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="@color/widget_muted"
-                    android:textSize="10sp" />
+                    android:textSize="9sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/widget_next_time"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/time_placeholder"
                 android:textColor="@color/widget_cream"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
@@ -110,16 +110,16 @@
                 android:layout_marginLeft="7dp"
                 android:text="›"
                 android:textColor="@color/widget_gold"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
@@ -144,13 +144,13 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/widget_divider" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
@@ -175,13 +175,13 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/widget_divider" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
@@ -206,13 +206,13 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/widget_divider" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
@@ -237,13 +237,13 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/widget_divider" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
@@ -268,13 +268,13 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-            <View
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/widget_divider" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="19dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <ImageView
