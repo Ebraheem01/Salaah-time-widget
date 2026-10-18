@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Salaah Cape Town</string>
+    <string name="widget_description">Daily prayer times for Cape Town</string>
+
+    <string name="widget_title">Salaah • Cape Town</string>
+    <string name="widget_date_placeholder">—</string>
+    <string name="time_placeholder">--:--</string>
+
+    <string name="fajr">Fajr</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="dhuhr">Dhuhr</string>
+    <string name="asr">Asr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
+
+    <string name="main_subtitle">Muslim World League · Asr: Standard (Shafi\'i)</string>
+    <string name="next_prayer">Next: %1$s at %2$s · in %3$s</string>
+    <string name="next_prayer_tomorrow">Next: %1$s tomorrow at %2$s</string>
+    <string name="duration_under_minute">under a minute</string>
+    <string name="duration_minutes">%1$d min</string>
+    <string name="duration_hours_minutes">%1$d h %2$d min</string>
+
+    <string name="exact_alarm_granted">Midnight refresh: exact alarms are allowed.</string>
+    <string name="exact_alarm_denied">Midnight refresh: exact alarms are not allowed, so updates may be delayed. Tap the button to allow them.</string>
+    <string name="exact_alarm_not_needed">Midnight refresh is scheduled.</string>
+    <string name="allow_exact_alarms">Allow exact alarms</string>
+
+    <string name="widget_hint">Add the widget: long-press your home screen → Widgets → Salaah Cape Town. The widget refreshes itself just after midnight; opening this app refreshes it too.</string>
+</resources>

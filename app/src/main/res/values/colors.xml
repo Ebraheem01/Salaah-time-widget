@@ -1,0 +1,17 @@
+<resources>
+    <color name="brand">#14532D</color>
+    <color name="brand_dark">#0B2E19</color>
+    <color name="accent">#FBBF24</color>
+
+    <color name="text_primary">#1F2937</color>
+    <color name="text_muted">#6B7280</color>
+
+    <color name="widget_background">#14532D</color>
+    <color name="widget_title">#FFFFFF</color>
+    <color name="widget_date">#B7D8C0</color>
+    <color name="widget_label">#DCEFE1</color>
+    <color name="widget_time">#FFFFFF</color>
+    <color name="widget_dim">#8FB79B</color>
+
+    <color name="ic_launcher_background">#14532D</color>
+</resources>
